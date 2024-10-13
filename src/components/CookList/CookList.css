@@ -1,0 +1,20 @@
+.list{
+    display: flex;
+    flex-wrap: wrap;    
+}
+.list-item{
+    min-width: 250px;
+    min-height: 200px;
+
+    max-width: 20%;
+
+    padding: 20px;
+    margin: 10px;
+    border-radius: 15px;
+
+    background-color: #001F3F;
+    color: #EAD8B1;
+}
+.list-content{
+    text-wrap: break-word;
+}

@@ -1,0 +1,12 @@
+.inputField{
+    display: flex;
+    flex-direction: column;
+}
+.inputContent{
+    width: 300px;
+    height: 100px;
+    resize: none;
+}
+.inputTitle{
+    height: 20px;
+}
