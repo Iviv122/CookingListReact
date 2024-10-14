@@ -1,8 +1,8 @@
-.Remove{
+.IsFavourite{
     background-color: transparent;
     border: 0px;
 }
-.Remove-text{
+.IsFavourite-text{
     font-size: 24px;
-    color: white;
+
 }

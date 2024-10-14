@@ -21,6 +21,8 @@ export default function AddItem({AddList}){
                     AddList(title,content);
                     console.log(title,content);
 
+                    contentRef.current.value = "";
+                    titleRef.current.value = "";               
                 }
     
             }}>Submit</button>
