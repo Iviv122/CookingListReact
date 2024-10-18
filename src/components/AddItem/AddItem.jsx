@@ -9,9 +9,9 @@ export default function AddItem({AddList}){
     return(
     
         <div className="inputField">
-            <input className="inputTitle" type="text" placeholder="Add Title" name="title" ref={titleRef}/>
-            <textarea className="inputContent" type="text" placeholder="Add Content" name="content" ref={contentRef}/>
-            <button onClick={(e)=> {
+            <input className="inputTitle" type="text" placeholder="Dodaj nazwe" name="title" ref={titleRef}/>
+            <textarea className="inputContent" type="text" placeholder="Napisz Trescz" name="content" ref={contentRef}/>
+            <button className="inputButton" onClick={(e)=> {
                 const title = String(titleRef.current.value);
                 const content = String(contentRef.current.value); 
 
@@ -25,7 +25,7 @@ export default function AddItem({AddList}){
                     titleRef.current.value = "";               
                 }
     
-            }}>Submit</button>
+            }}>Dodaj</button>
         </div>
     );
 }

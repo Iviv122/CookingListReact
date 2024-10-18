@@ -5,17 +5,30 @@ import IsFavourite from '../IsFavourite/IsFavourite';
 export default function CookList({SetFavourite, UnsetFavourite,isFav, SearchVar, cookingList, removeList}){
     return(
         <div className='list'>
-        {cookingList
-                
-        .filter((item) => item.title.toLowerCase().includes(SearchVar.toLowerCase()) && isFav === item.IsFavourite )
-        .map((item,index)=>(
+        {
+        !isFav ? (
+        cookingList 
+        .filter((item) => item.title.toLowerCase().includes(SearchVar.toLowerCase()))
+        .map((item)=>(
                 <div className='list-item'>
-                    <Remove removeList={removeList} index={index}/>
-                    <IsFavourite isFav={item.IsFavourite} index={index} SetFavourite={SetFavourite} UnsetFavourite={UnsetFavourite}/>
-                    <h2 key={index}>{item.title}</h2>
+                    <Remove removeList={removeList} index={item.id}/>
+                    <IsFavourite isFav={item.IsFavourite} index={item.id} SetFavourite={SetFavourite} UnsetFavourite={UnsetFavourite}/>
+                    <h2 key={item.id}>{item.title}</h2>
                     <p className='list-content'>{item.content}</p>
                 </div>
-        ))}
+        ))) :(
+         cookingList 
+        .filter((item) => item.title.toLowerCase().includes(SearchVar.toLowerCase()) && item.IsFavourite)
+        .map((item)=>(
+                <div className='list-item'>
+                    <Remove removeList={removeList} index={item.id}/>
+                    <IsFavourite isFav={item.IsFavourite} index={item.id} SetFavourite={SetFavourite} UnsetFavourite={UnsetFavourite}/>
+                    <h2 key={item.id}>{item.title}</h2>
+                    <p className='list-content'>{item.content}</p>
+                </div>
+        ))
+        )
+        }
         </div>
     );
 }

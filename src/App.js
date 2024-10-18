@@ -9,12 +9,12 @@ import Search from './components/Search/Search'
 
 function App() {
   const initialList=[
-    {title: "Sample Title1",content: "Sample text1",IsFavourite: false}, 
-    {title: "Sample Title2",content: "Sample text2",IsFavourite: false},
-    {title: "Sample Title3",content: "Sample text3",IsFavourite: false}
+    {title: "Sample Title1",content: "Sample text1",IsFavourite: false, id:1}, 
+    {title: "Sample Title2",content: "Sample text2",IsFavourite: false, id:2},
+    {title: "Sample Title3",content: "Sample text3",IsFavourite: false, id:3}
 ]
 
-  const[state, dispatch] = useReducer(reducer, {cookingList: initialList, searchContent: '', SearchFavourite: false});
+  const[state, dispatch] = useReducer(reducer, {cookingList: initialList,searchContent: '', SearchFavourite: false, id: 4});
   
   function handleAddList(title,content){
     dispatch({type:"AddList", title,content});
@@ -40,9 +40,15 @@ function App() {
 
 
   return (
+    
    <div className='App'>        {/*Nie umiem kontekstow, nie rozumiem :( */}
-    <AddItem AddList={handleAddList}/>  
+
+    <h1>Lista przepisow</h1>
+
     <Search searchContent={handleSearchContent} searchFavouriteFunc={handleSearchFavourite} searchNormalFunc={handleSearchNormal} isFav={state.SearchFavourite}/>
+
+    <AddItem AddList={handleAddList}/>  
+   
     <CookList SearchVar={state.searchContent} cookingList={state.cookingList} isFav={state.SearchFavourite} removeList={handleRemoveList} SetFavourite={handleSetFavourite} UnsetFavourite={handleUnsetFavourite}/>
    </div> 
   );
